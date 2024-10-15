@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Stylish Calculator</h1>
+        <form method="POST">
+            <input type="text" name="num1" placeholder="First Number" required>
+            <select name="operation" required>
+                <option value="add">Add (+)</option>
+                <option value="subtract">Subtract (-)</option>
+                <option value="multiply">Multiply (*)</option>
+                <option value="divide">Divide (/)</option>
+            </select>
+            <input type="text" name="num2" placeholder="Second Number" required>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result %}
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+
+        {% if error %}
+            <h3 class="error">{{ error }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
